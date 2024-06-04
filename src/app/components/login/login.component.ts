@@ -17,21 +17,37 @@ export class LoginComponent {
   router = inject(Router);
   formBuilder = inject(FormBuilder);
   loginForm = this.formBuilder.group({
-    username:['',[Validators.required]],
-    password:['',[Validators.required]],
+    username: ['', [Validators.required]],
+    password: ['', [Validators.required]],
   });
 
-  save(){
-    console.log(this.loginForm.value);
-    const datalogin : ILogin ={
-      username: this.loginForm.value.username!,
-      password: this.loginForm.value.password!
+  validateform: string = '';
+
+  save() {
+    if (this.loginForm.value.username == '' || this.loginForm.value.password == '') {
+      this.validateform = "Vui lòng nhập đầy đủ thông tin";
     }
-    this.httpService.login(datalogin).subscribe(() => {
-      console.log('login success');
-      this.router.navigateByUrl('home');
-    });
+    else {
+      console.log(this.loginForm.value);
+      const datalogin: ILogin = {
+        username: this.loginForm.value.username!,
+        password: this.loginForm.value.password!
+      }
+      this.httpService.login(datalogin).subscribe(status => {
+        if (status != null) {
+          console.log('login success');
+          this.router.navigateByUrl('home');
+        }
+        else {
+          this.validateform = "Tên tài khoản hoặc mật khẩu không đúng";
+          console.log('login failed');
+        }
+      });
+    }
+
   }
+
+  
 
   hide = true;
   clickEvent(event: MouseEvent) {

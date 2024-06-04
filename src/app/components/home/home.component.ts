@@ -24,11 +24,8 @@ export class HomeComponent {
 
   }
 
-  ngAfterViewInit() {
-    if (this.sidenav) {
+  moside() {
       this.sidenav.open();
-    }
-
   }
 
 }
