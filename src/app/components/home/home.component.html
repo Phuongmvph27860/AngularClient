@@ -1,0 +1,86 @@
+<div class="listdanhmuc">
+<button mat-button [matMenuTriggerFor]="menu">Danh mục</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item><a routerLink="">Hệ thống bán hàng</a></button>
+  <button mat-menu-item>Điểm bán hàng</button>
+  <button mat-menu-item>Danh mục công việc</button>
+  <button mat-menu-item>Danh mục nhân viên</button>
+  <button mat-menu-item>Nhóm hàng</button>
+  <button mat-menu-item>Hàng hóa</button>
+</mat-menu>
+</div>
+
+<div class="nghiepvu">
+<button mat-button [matMenuTriggerFor]="menu1">Nghiệp vụ</button>
+<mat-menu #menu1="matMenu">
+  <button mat-menu-item>Chấm công</button>
+</mat-menu>
+</div>
+
+<div class="hethong">
+<button mat-button [matMenuTriggerFor]="menu2">Hệ thống</button>
+<mat-menu #menu2="matMenu">
+  <button mat-menu-item>Quản lý người dùng</button>
+  <button mat-menu-item>Đổi mật khẩu</button>
+  <button mat-menu-item>Đăng xuất</button>
+</mat-menu>
+</div>
+
+<!-- <div class="slider-container">
+  <div class="menu">
+    <label for="slide-dot-1"></label>
+    <label for="slide-dot-2"></label>
+    <label for="slide-dot-3"></label>
+  </div>
+  
+  <input id="slide-dot-1" type="radio" name="slides" checked>
+    <div class="slide slide-1"></div>
+  
+  <input id="slide-dot-2" type="radio" name="slides">
+    <div class="slide slide-2"></div>
+  
+  <input id="slide-dot-3" type="radio" name="slides">
+    <div class="slide slide-3"></div>
+</div> -->
+
+<mat-toolbar>
+  <button mat-icon-button  (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  Responsive sidebar navigation
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav="matSidenav">
+    <img class="avatar mat-elevation-z8" width="160px" height="200px"  src="https://i.pinimg.com/564x/94/9b/8d/949b8d8d9229693ba9d53b054b738e2a.jpg">
+    <h4 class="name">Sunshine</h4>
+    <p class="designation">Software Engineer</p>
+    <mat-divider></mat-divider>
+
+    <button mat-button class="menu-button">
+      <mat-icon>home</mat-icon>
+      <span>Home</span>
+    </button>
+    <button mat-button class="menu-button">
+      <mat-icon>person</mat-icon>
+      <span>Profile</span>
+    </button>
+    <button mat-button class="menu-button">
+      <mat-icon>info</mat-icon>
+      <span>About</span>
+    </button>
+    
+    <mat-divider></mat-divider>
+    
+    <button mat-button class="menu-button">
+      <mat-icon>help</mat-icon>
+      <span>Help</span>
+    </button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content mat-elevation-z4">
+      Main content
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
