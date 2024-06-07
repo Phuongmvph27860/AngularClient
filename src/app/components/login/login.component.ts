@@ -5,6 +5,7 @@ import { HttpService } from '../../http.service';
 import { ILogin } from '../../../interface/login';
 
 
+
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -35,6 +36,7 @@ export class LoginComponent {
       }
       this.httpService.login(datalogin).subscribe(status => {
         if (status != null) {
+          localStorage.setItem('userid', status.id);
           console.log('login success');
           this.router.navigateByUrl('home');
         }
